@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_laravel/services/auth.dart';
+import 'package:provider/provider.dart';
 
 import 'Screens/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+ runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Auth ()),
+        
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
